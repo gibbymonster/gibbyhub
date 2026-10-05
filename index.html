@@ -87,6 +87,7 @@ ki=e.key===K[ki]?ki+1:(e.key===K[0]?1:0);
 if(ki===K.length){ki=0;document.body.classList.add('rb');clearTimeout(rbT);rbT=setTimeout(()=>document.body.classList.remove('rb'),8000);boom();say('rainbow mode')}
 if(e.key.length===1){typed=(typed+e.key.toLowerCase()).slice(-8);
 if(typed.endsWith('gibby')){boom();say('👋 hi')}
+if(typed.endsWith('leif')){boom();say('do you wanna see how leifś bumble bee toy transforms? do you wanna know all of the smiling critters names?')}
 if(typed.endsWith('monster')){const on=document.body.classList.toggle('mon');
 tag.textContent=on?"im gonna get you":tag0;
 say(on?'👹 MONSTER MODE... type monster to escape':'phew, it left')}}});
