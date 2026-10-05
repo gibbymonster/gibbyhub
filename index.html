@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Gibby Hub</title>
+<title>gibby hub</title>
 <link rel="icon" href="gibbyhublogo.png">
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;800&display=swap" rel="stylesheet">
 <style>
@@ -17,7 +17,7 @@ body{background:var(--bg);color:var(--fg);font-family:'Bricolage Grotesque',syst
 .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(#ffffff0d 1px,transparent 1px) 0 0/48px 48px,linear-gradient(90deg,#ffffff0d 1px,transparent 1px) 0 0/48px 48px;mask-image:radial-gradient(circle at 50% 30%,#000,transparent 75%)}
 @keyframes d{to{transform:translate(12vmax,8vmax) scale(1.25)}}
 main{max-width:920px;margin:0 auto;padding:64px 20px 80px;text-align:center}
-.logo{height:150px;max-width:80%;filter:drop-shadow(0 0 28px var(--a)) drop-shadow(0 0 60px #ff4fd855);animation:f 4s ease-in-out infinite}
+.logo{height:clamp(240px,45vw,380px);max-width:90%;filter:drop-shadow(0 0 28px var(--a)) drop-shadow(0 0 60px #ff4fd855);animation:f 4s ease-in-out infinite}
 @keyframes f{50%{transform:translateY(-12px)}}
 p.s{margin:22px 0 48px;font-size:1.25rem;font-weight:800;background:linear-gradient(90deg,var(--c),var(--a),var(--b));-webkit-background-clip:text;background-clip:text;color:transparent}
 .g{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;perspective:900px;text-align:left}
@@ -55,7 +55,7 @@ body.mon::after{content:"";position:fixed;inset:0;z-index:7;pointer-events:none;
 <div class="bg"><i></i><i></i><i></i></div>
 <main>
 <img class="logo" src="gibbyhublogo.png" alt="Gibby Hub logo">
-<p class="s">Everything I've built, in one place.</p>
+<p class="s">all of my sites on this one site</p>
 <div class="g" id="g"></div>
 </main>
 <script>
@@ -77,19 +77,19 @@ let tt;function say(m){T.textContent=m;T.classList.add('on');clearTimeout(tt);tt
 function boom(){for(let i=0;i<90;i++){const c=document.createElement('i');c.className='cf';
 c.style.left=Math.random()*100+'vw';c.style.background=`hsl(${Math.random()*360} 100% 60%)`;
 c.style.animationDelay=Math.random()*.6+'s';document.body.append(c);setTimeout(()=>c.remove(),3200)}}
-const logo=document.querySelector('.logo');let n=0,tm;
+const logo=document.querySelector('.logo'),tag=document.querySelector('.s'),tag0=tag.textContent;let n=0,tm;
 logo.onclick=()=>{n++;clearTimeout(tm);tm=setTimeout(()=>n=0,1500);
-if(n>=5){n=0;logo.classList.add('spin');setTimeout(()=>logo.classList.remove('spin'),1000);boom();say('🎉 you found Gibby!')}};
+if(n>=5){n=0;logo.classList.add('spin');setTimeout(()=>logo.classList.remove('spin'),1000);boom();say('you found gibby!')}};
 const K=['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'];let ki=0,typed='',rbT;
 addEventListener('keydown',e=>{
-if(e.key==='Escape'){document.body.classList.remove('rb','mon');document.querySelector('.s').textContent="Everything I've built, in one place."}
+if(e.key==='Escape'){document.body.classList.remove('rb','mon');tag.textContent=tag0}
 ki=e.key===K[ki]?ki+1:(e.key===K[0]?1:0);
-if(ki===K.length){ki=0;document.body.classList.add('rb');clearTimeout(rbT);rbT=setTimeout(()=>document.body.classList.remove('rb'),8000);boom();say('🌈 rainbow mode')}
+if(ki===K.length){ki=0;document.body.classList.add('rb');clearTimeout(rbT);rbT=setTimeout(()=>document.body.classList.remove('rb'),8000);boom();say('rainbow mode')}
 if(e.key.length===1){typed=(typed+e.key.toLowerCase()).slice(-8);
-if(typed.endsWith('gibby')){boom();say('👋 hi Gibby')}
+if(typed.endsWith('gibby')){boom();say('👋 hi')}
 if(typed.endsWith('monster')){const on=document.body.classList.toggle('mon');
-document.querySelector('.s').textContent=on?"Everything I've built... it's watching.":"Everything I've built, in one place.";
-say(on?'👹 MONSTER MODE... type monster to escape':'😅 phew, it left')}}});
-document.querySelector('.s').ondblclick=()=>{boom();say('✨ nice double click')};
-console.log('%c👀 psst... try the Konami code, or type "gibby" or "monster"','font:bold 16px system-ui;color:#8b5cff');
+tag.textContent=on?"Everything I've built... it's watching.":tag0;
+say(on?'👹 MONSTER MODE... type monster to escape':'phew, it left')}}});
+tag.ondblclick=()=>{boom();say('nice double click')};
+console.log('%c👀 psst... dont type monster on your keyboard"','font:bold 16px system-ui;color:#8b5cff');
 </script></body></html>
