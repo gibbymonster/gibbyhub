@@ -1,7 +1,67 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>gibby hub</title>
+<link rel="icon" href="gibbyhublogo.png">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#07040f;--fg:#f3eeff;--mut:#9a8fc0;--a:#8b5cff;--b:#ff4fd8;--c:#3de0ff}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%}
+body{background:var(--bg);color:var(--fg);font-family:'Bricolage Grotesque',system-ui,sans-serif;overflow-x:hidden;padding:env(safe-area-inset-top,0px) 0 env(safe-area-inset-bottom,0px)}
+.bg{position:fixed;inset:0;z-index:-1;overflow:hidden}
+.bg i{position:absolute;width:60vmax;height:60vmax;border-radius:50%;filter:blur(90px);opacity:.45;animation:d 18s ease-in-out infinite alternate}
+.bg i:nth-child(1){background:var(--a);top:-20%;left:-15%}
+.bg i:nth-child(2){background:var(--b);bottom:-25%;right:-15%;animation-delay:-6s}
+.bg i:nth-child(3){background:var(--c);top:30%;left:35%;width:35vmax;height:35vmax;opacity:.25;animation-delay:-12s}
+.bg::after{content:"";position:absolute;inset:0;background:linear-gradient(#ffffff0d 1px,transparent 1px) 0 0/48px 48px,linear-gradient(90deg,#ffffff0d 1px,transparent 1px) 0 0/48px 48px;mask-image:radial-gradient(circle at 50% 30%,#000,transparent 75%)}
+@keyframes d{to{transform:translate(12vmax,8vmax) scale(1.25)}}
+main{max-width:920px;margin:0 auto;padding:64px 20px 80px;text-align:center}
+.logo{height:clamp(90px,18vw,130px);max-width:90%;filter:drop-shadow(0 0 28px var(--a)) drop-shadow(0 0 60px #ff4fd855);animation:f 4s ease-in-out infinite}
+@keyframes f{50%{transform:translateY(-12px)}}
+p.s{margin:22px 0 48px;font-size:1.25rem;font-weight:800;background:linear-gradient(90deg,var(--c),var(--a),var(--b));-webkit-background-clip:text;background-clip:text;color:transparent}
+.g{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;perspective:900px;text-align:left}
+.c{position:relative;display:block;padding:28px;border-radius:20px;color:var(--fg);text-decoration:none;background:linear-gradient(#120b26dd,#120b26dd) padding-box,linear-gradient(135deg,var(--a),var(--b),var(--c)) border-box;border:2px solid transparent;transition:transform .15s ease-out,box-shadow .3s;transform-style:preserve-3d;overflow:hidden}
+.c::before{content:"";position:absolute;inset:0;background:radial-gradient(260px circle at var(--x,50%) var(--y,50%),#8b5cff44,transparent 70%);opacity:0;transition:opacity .3s}
+.c:hover{box-shadow:0 0 40px #8b5cff66,0 0 80px #ff4fd833}
+.c:hover::before{opacity:1}
+.c:focus-visible{outline:3px solid var(--c);outline-offset:3px}
+.c img{height:56px;width:56px;border-radius:14px;display:block;margin-bottom:18px;box-shadow:0 0 24px #8b5cff66}
+.c b{font-size:1.5rem;display:block;position:relative}
+.c small{display:block;margin-top:6px;color:var(--mut);position:relative;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.c em{position:absolute;right:22px;bottom:18px;font-style:normal;font-size:1.6rem;color:var(--c);transition:transform .2s}
+.c:hover em{transform:translate(4px,-4px)}
+
+.t{position:fixed;left:50%;bottom:32px;transform:translate(-50%,40px);background:#120b26;border:2px solid var(--a);padding:12px 20px;border-radius:99px;font-weight:800;opacity:0;transition:.3s;z-index:9;box-shadow:0 0 30px #8b5cff88;pointer-events:none}
+.t.on{opacity:1;transform:translate(-50%,0)}
+.spin{animation:sp 1s ease-in-out!important}
+@keyframes sp{to{transform:rotate(720deg) scale(1.3)}}
+body.rb{animation:hu 3s linear infinite}
+@keyframes hu{to{filter:hue-rotate(360deg)}}
+.cf{position:fixed;top:-20px;width:10px;height:14px;z-index:8;pointer-events:none;animation:fl 2.4s ease-in forwards}
+@keyframes fl{to{transform:translateY(110vh) rotate(720deg);opacity:.8}}
+
+body.mon{--a:#ff1a1a;--b:#8f0000;--c:#ff7a00;--bg:#080000}
+body.mon .c{background:linear-gradient(#1a0505ee,#1a0505ee) padding-box,linear-gradient(135deg,#ff1a1a,#8f0000,#ff7a00) border-box;animation:sh .35s infinite}
+body.mon .c:hover{box-shadow:0 0 40px #ff1a1a99}
+body.mon .c::before{background:radial-gradient(260px circle at var(--x,50%) var(--y,50%),#ff1a1a44,transparent 70%)}
+body.mon .logo{filter:drop-shadow(0 0 30px #ff1a1a) drop-shadow(0 0 60px #8f0000) saturate(1.5)}
+body.mon main{animation:fk 2.5s infinite}
+body.mon::after{content:"";position:fixed;inset:0;z-index:7;pointer-events:none;background:radial-gradient(circle,transparent 35%,#000000cc 100%),radial-gradient(circle at 50% 120%,#ff000033,transparent 60%)}
+@keyframes sh{25%{transform:translate(1px,-1px)}50%{transform:translate(-1px,1px)}75%{transform:translate(1px,1px)}}
+@keyframes fk{0%,100%{opacity:1}6%{opacity:.35}8%{opacity:1}52%{opacity:1}54%{opacity:.5}56%{opacity:1}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style></head><body>
+<div class="bg"><i></i><i></i><i></i></div>
+<main>
+<img class="logo" src="gibbyhublogo.png" alt="Gibby Hub logo">
+<p class="s">all of my sites on this one site</p>
+<div class="g" id="g"></div>
+</main>
 <script>
 const B=[
 {img:'gibbydayicon.png',n:'Gibby Day Countdown',u:'https://gibbymonster.github.io/gibbyday'},
-{img:'betaflame.png',n:'betapcs',u:'https://gibbymonster.github.io/betapcs'},
+{img:'betaflame.png',n:'betapcs',u:'https://gibbymonster.github.io/gibbyhub'},
 {img:'notebookinc.png',n:'Notebook Inc',u:'https://thegibbymonster.github.io/notebookinc/'}];
 const g=document.getElementById('g');
 B.forEach(s=>{const a=document.createElement('a');a.className='c';a.href=s.u;a.target='_blank';a.rel='noopener';
@@ -12,6 +72,7 @@ a.style.setProperty('--x',x+'px');a.style.setProperty('--y',y+'px');
 a.style.transform=`rotateX(${(.5-y/r.height)*12}deg) rotateY(${(x/r.width-.5)*12}deg) scale(1.03)`};
 a.onmouseleave=()=>a.style.transform='';
 g.append(a)});
+
 const T=document.createElement('div');T.className='t';document.body.append(T);
 let tt;function say(m){T.textContent=m;T.classList.add('on');clearTimeout(tt);tt=setTimeout(()=>T.classList.remove('on'),2600)}
 function boom(){for(let i=0;i<90;i++){const c=document.createElement('i');c.className='cf';
@@ -27,12 +88,9 @@ ki=e.key===K[ki]?ki+1:(e.key===K[0]?1:0);
 if(ki===K.length){ki=0;document.body.classList.add('rb');clearTimeout(rbT);rbT=setTimeout(()=>document.body.classList.remove('rb'),8000);boom();say('rainbow mode')}
 if(e.key.length===1){typed=(typed+e.key.toLowerCase()).slice(-8);
 if(typed.endsWith('gibby')){boom();say('hi -gibby')}
-if(typed.endsWith('monster')){
-const on=document.body.classList.toggle('mon');
-tag.textContent=on?"👹👹👹👹👹👹👹👹👹👹👹👹👹👹👹👹👹👹👹👹":tag0;
-say(on?'👹 MONSTER MODE... type monster to escape':'phew, it left')
-}
-}});
+if(typed.endsWith('monster')){const on=document.body.classList.toggle('mon');
+tag.textContent=on?"roarrrghh":tag0;
+say(on?'👹 MONSTER MODE... type monster to escape':'phew, it left')}}});
 tag.ondblclick=()=>{boom();say('nice double click')};
-console.log('%c psst... dont type monster on your keyboard','font:bold 16px system-ui;color:#8b5cff');
-</script>
+console.log('%c👀 psst... dont type monster on your keyboard"','font:bold 16px system-ui;color:#8b5cff');
+</script></body></html>
