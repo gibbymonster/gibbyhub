@@ -87,10 +87,11 @@ if(e.key==='Escape'){document.body.classList.remove('rb','mon');tag.textContent=
 ki=e.key===K[ki]?ki+1:(e.key===K[0]?1:0);
 if(ki===K.length){ki=0;document.body.classList.add('rb');clearTimeout(rbT);rbT=setTimeout(()=>document.body.classList.remove('rb'),8000);boom();say('rainbow mode')}
 if(e.key.length===1){typed=(typed+e.key.toLowerCase()).slice(-8);
-if(typed.endsWith('gibby')){boom();say('👋 hi')}
+if(typed.endsWith('gibby')){boom();say('hi -gibby')}
+if(typed.endsWith('leif')){const on=document.body.classList.toggle('mon');                     
 if(typed.endsWith('monster')){const on=document.body.classList.toggle('mon');
-tag.textContent=on?"Everything I've built... it's watching.":tag0;
+tag.textContent=on?"👹👹👹👹👹👹👹👹👹👹👹👹👹👹👹👹👹👹👹👹":tag0;
 say(on?'👹 MONSTER MODE... type monster to escape':'phew, it left')}}});
 tag.ondblclick=()=>{boom();say('nice double click')};
-console.log('%c👀 psst... dont type monster on your keyboard"','font:bold 16px system-ui;color:#8b5cff');
+console.log('%c psst... dont type monster on your keyboard"','font:bold 16px system-ui;color:#8b5cff');
 </script></body></html>
